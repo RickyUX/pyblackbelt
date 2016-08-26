@@ -29,3 +29,8 @@ class ExamModel(Model):
         query ='SELECT * FROM users WHERE users.email = :email AND users.password = :password'
         return self.db.query_db(query, user)
 
+
+    def poke_users(self,user):
+        query = 'INSERT INTO pokes WHERE user.id = id'
+        data = {'id' : id}
+        return self.db.query_db(query)

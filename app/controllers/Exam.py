@@ -61,3 +61,9 @@ class Exam(Controller):
     def logout(self):
         session.clear()
         return self.load_view('index.html')
+
+    def poke(self):
+        sys.stderr.write('Test6\n')
+        users = self.models['ExamModel'].poke_users(user_id)
+        sys.stderr.write('Test7\n')
+        return self.load_view('pokes.html')
