@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Success Page</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+ <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h4>PyBelt Project</h4>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+			<form class="navbar-form navbar-right" action='/logout'	method="post">
+			<button type="submit" class="btn btn-default">Logout</button>
+			</form>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+	<h1>Welcome {{session['name']}} AKA {{session['alias']}}!</h1>
+  <p> 3 people poked you!</p>
+
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Alias</th>
+        <th>Email Address</th>
+        <th>Poke History</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.alias }}</td>
+        <td>{{ user.email }}</td>
+        <td> 25 pokes </td>
+        <td><a href="/destroy/{{user.id}}"><button type="button">poke</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+</body>
+</html>
